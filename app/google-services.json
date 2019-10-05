@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1050399855012-o1uv3dnv9ek5hg6e6e9ppg3mshiseajr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.uwlive.main",
+            "certificate_hash": "8638eac30c12a3589ad20583911bc15f00be6ffc"
+          }
+        },
+        {
           "client_id": "1050399855012-vue6rbk0esr0bbff2arme2hh05idgp4h.apps.googleusercontent.com",
           "client_type": 3
         }

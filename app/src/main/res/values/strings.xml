@@ -29,4 +29,6 @@
     <string name="register_phone">Mobile Number</string>
     <string name="register_password">Password</string>
     <string name="register_passwordreenter">Re-enter Password</string>
+    <string name="user_head_photo">User head photo</string>
+    <string name="house_name">House Name</string>
 </resources>

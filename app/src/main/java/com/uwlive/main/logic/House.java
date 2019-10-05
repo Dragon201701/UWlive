@@ -16,6 +16,7 @@ public class House {
 	private String description;
 	private ArrayList<String> comments;
 	private int price;
+	private String ownerID; //Owner user ID
 	/**
 	 * @return the price
 	 */
@@ -28,9 +29,9 @@ public class House {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	private int HID; // House ID. This is UID + number of house created by the User.
+	private String HID; // House ID. This is UID + number of house created by the User.
 	
-	public House(String housename, String description, int hid) {
+	public House(String housename, String description, String hid) {
 		// TODO Auto-generated constructor stub
 		this.housename = housename;
 		this.description = description;
@@ -67,14 +68,14 @@ public class House {
 	/**
 	 * @return the hID
 	 */
-	public int getHID() {
+	public String getHID() {
 		return HID;
 	}
 	/**
-	 * @param hID the hID to set
+	 * @param hid the hID to set
 	 */
-	public void setHID(int hID) {
-		HID = hID;
+	public void setHID(String hid) {
+		HID = hid;
 	}
 	/**
 	 * @return the comments
