@@ -89,9 +89,19 @@ Myhouses class stores profile of all houses owned by the current user. This clas
  * 9.30 Complete Firestore connection, start designing main activity
  * 10.2 Complte Main activity - Home Fragment Recycler and Card View design as well as fetch house market data from firestore, start implementing Firebase storage.
  * 10.4 Still working on Firebase storage, giveing up...
+ * 10.11 Prepare for demo, still can't connect to Cloud Storage. 
 ## Tutorial
  * [FIrebase Authentication](https://firebase.google.com/docs/auth)
      - [EmailPassowrd](https://firebase.google.com/docs/auth/android/password-auth#sign_in_a_user_with_an_email_address_and_password)
  * [Firestore](https://firebase.google.com/docs/firestore/quickstart)
  * [Firebase Storage](https://firebase.google.com/docs/storage/)
      - [Quickstart](https://firebase.google.com/docs/storage/android/start)
+## Future work
+1. Move User authentication from Login and Signup Acitivty to User class.
+2. Create a new datalayer that handle all cloud traffic. 
+   * All classes or activities that need to cloud IO will call method in this class which will perform the task with its cloud instance in this class.
+3. Migrate to any newer framework if needed to reduce workload. 
+4. Write a Kotlin version.
+## Comments
+ * Design the architect, data model and draw out the class diagram ahead before starting. 
+ * Write wiki page for framwork and any external API.
