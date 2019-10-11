@@ -6,7 +6,6 @@ package com.uwlive.main.logic; /**
  * @author yz-li
  *
  */
-import java.util.*;
 public class House {
 
 	/**
@@ -14,13 +13,13 @@ public class House {
 	 */
 	private String housename;
 	private String description;
-	private ArrayList<String> comments;
-	private int price;
+	//private ArrayList<String> comments;
+	private double price;
 	private String ownerID; //Owner user ID
 	/**
 	 * @return the price
 	 */
-	public int getPrice() {
+	public double getPrice() {
 		return price;
 	}
 	/**
@@ -36,11 +35,20 @@ public class House {
 		this.housename = housename;
 		this.description = description;
 		this.HID = hid;
-		comments = null;
+		//comments = null;
 	}
-	public void addcomment(String comment) {
+	public House(String housename, String description, double price, String hid, String owner) {
+		// TODO Auto-generated constructor stub
+		this.housename = housename;
+		this.description = description;
+		this.HID = hid;
+		this.price = price;
+		this.ownerID = owner;
+		//comments = null;
+	}
+	/*public void addcomment(String comment) {
 		comments.add(comment);
-	}
+	}*/
 	/**
 	 * @return the housename
 	 */
@@ -80,8 +88,12 @@ public class House {
 	/**
 	 * @return the comments
 	 */
-	public ArrayList<String> getComments() {
+	/*public ArrayList<String> getComments() {
 		return comments;
+	}*/
+	@Override
+	public String toString(){
+		return "\n-----------------------------------------------------------------\n"+"| House ID: " + HID + " Housename: " + housename + " Price: " + price + " |\n-----------------------------------------------------------------";
 	}
 
 }

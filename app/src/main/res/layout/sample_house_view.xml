@@ -15,28 +15,8 @@
         app:exampleDrawable="@android:drawable/ic_menu_add"
         app:exampleString="Hello, HouseView" />
 
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="298dp"
-            android:layout_height="189dp"
-            app2:srcCompat="@drawable/defaultapt" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Price" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Housename" />
-    </LinearLayout>
+        android:layout_height="wrap_content" />
 
 </FrameLayout>

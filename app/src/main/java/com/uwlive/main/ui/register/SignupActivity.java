@@ -15,19 +15,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.uwlive.main.MainActivity;
 import com.uwlive.main.R;
-import com.uwlive.main.logic.House;
 import com.uwlive.main.logic.User;
+import com.uwlive.main.ui.gallery.GalleryFragment;
 import com.uwlive.main.ui.login.LoginActivity;
 
 import java.util.HashMap;
@@ -70,7 +66,8 @@ public class SignupActivity extends AppCompatActivity {
         _signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                signup();
+                if(validate())
+                    signup();
             }
         });
 
@@ -153,6 +150,7 @@ public class SignupActivity extends AppCompatActivity {
         setResult(RESULT_OK, null);
         startActivity(new Intent(getApplicationContext(), MainActivity.class));
         overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+        GalleryFragment.adapter.notifyDataSetChanged();
         finish();
     }
 

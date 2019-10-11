@@ -1,52 +1,33 @@
 package com.uwlive.main.ui.login;
 
-import android.app.Activity;
-
-import androidx.annotation.NonNull;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.StrictMode;
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.uwlive.main.MainActivity;
 import com.uwlive.main.R;
+import com.uwlive.main.logic.Myhouses;
 import com.uwlive.main.logic.User;
 import com.uwlive.main.ui.register.SignupActivity;
-
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -133,12 +114,17 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setEnabled(true);
         //User.Email = emailEditText.getText().toString();
         User.UID = mAuth.getUid();
-        User.UID = mAuth.getUid();
         User.Email = mAuth.getCurrentUser().getEmail();
+        User.LoginStatus = true;
+        User.Username = "";
         setResult(RESULT_OK, null);
         progressDialog.dismiss();
         startActivity(new Intent(getApplicationContext(), MainActivity.class));
         overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+        User.LoginStatus = true;
+        //UserProfile.updateProfile();
+        Myhouses.myhousesinitialize();
+        Myhouses.update();
         finish();
     }
     public void onLoginFailed() {

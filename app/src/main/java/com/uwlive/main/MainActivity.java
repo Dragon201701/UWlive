@@ -2,6 +2,7 @@ package com.uwlive.main;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ImageButton;
@@ -18,21 +19,22 @@ import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.firestore.FirebaseFirestore;
+import com.uwlive.main.logic.Market;
 import com.uwlive.main.logic.User;
+import com.uwlive.main.ui.home.HomeFragment;
 import com.uwlive.main.ui.login.UserProfile;
 import com.uwlive.main.ui.register.SignupActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static User user;
+    //public static User user;
     private AppBarConfiguration mAppBarConfiguration;
     View header;
     ImageButton userhead;
+    private static String TAG = "MainActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        user = null;
+        //user = null;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -43,6 +45,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                Market.updatemarket();
+                Log.d(TAG, User.LoginStatus.toString() + " " + User.UID);
+                /*if(User.LoginStatus) {
+                    Myhouses.update();
+                    GalleryFragment.adapter.notifyDataSetChanged();
+                }*/
+                HomeFragment.adapter.notifyDataSetChanged();
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -95,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
             username.setText("Please log in or register.");
             useremail.setText(" ");
         }
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
